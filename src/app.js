@@ -13,8 +13,20 @@ channel.bind('pusher:subscription_succeeded', function() {
 
 channel.bind('state', function(data) {
   console.log('Office: ' + data.office);    
-  console.log('People: ' + data.people);    
-  console.log('Coffee: ' + data.coffee);    
-  console.log('Food: ' + data.food);    
-  console.log('Darts: ' + data.darts);    
+
+  var office = document.getElementById('office');
+  office.innerHTML = data.office;
+
+  var people = document.getElementById('people');
+  people.innerHTML = data.people;
+
+  var coffee = document.getElementById('coffee');
+  coffee.innerHTML = data.coffee;
+
+  var food = document.getElementById('food');
+  food.innerHTML = data.food;
+
+  var darts = document.getElementById('darts');
+  darts.innerHTML = data.darts;
 });
+
