@@ -1,4 +1,4 @@
-# pleasure-ometer
+# pleasure-ometer 😊
 A simple UI rendered on real-time data, made in vanilla JavaScript (with the exception of [Pusher's JavaScript client](https://github.com/pusher/pusher-js)).
 
 ### Installation and Use
