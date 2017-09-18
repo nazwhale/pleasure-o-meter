@@ -13,20 +13,36 @@ channel.bind('pusher:subscription_succeeded', function() {
 
 channel.bind('state', function(data) {
   console.log('Office: ' + data.office);    
-
-  var office = document.getElementById('office');
-  office.innerHTML = data.office;
-
-  var people = document.getElementById('people');
-  people.innerHTML = data.people;
-
-  var coffee = document.getElementById('coffee');
-  coffee.innerHTML = data.coffee;
-
-  var food = document.getElementById('food');
-  food.innerHTML = data.food;
-
-  var darts = document.getElementById('darts');
-  darts.innerHTML = data.darts;
+  updateView(data);
 });
 
+function updateView(data) {
+  var office = document.getElementById('office');
+  office.innerHTML = emojify(data.office);
+
+  var people = document.getElementById('people');
+  people.innerHTML = emojify(data.people);
+
+  var coffee = document.getElementById('coffee');
+  coffee.innerHTML = emojify(data.coffee);
+
+  var food = document.getElementById('food');
+  food.innerHTML = emojify(data.food);
+
+  var darts = document.getElementById('darts');
+  darts.innerHTML = emojify(data.darts);
+};
+
+function emojify(score) {
+  if (score > 8) {
+    return '😄 ';
+  } else if (score > 6) {
+    return '🙂 ';
+  } else if (score > 4) {
+    return '😐 ';
+  } else if (score > 2) {
+    return '😞 ';
+  } else {
+    return '😠 ';
+  };
+}

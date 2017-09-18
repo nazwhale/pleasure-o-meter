@@ -5,3 +5,11 @@ body {
   background-color: #2bc78a;
   font-family: "Lucida Console", Monaco, monospace;
 }
+
+.emoji {
+ font-size: 28px;
+}
+
+ul {
+  list-style-type: none;
+}
