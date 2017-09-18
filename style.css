@@ -4,12 +4,14 @@ body {
   margin-top: 5%;
   background-color: #2bc78a;
   font-family: "Lucida Console", Monaco, monospace;
+  color: #2B303B;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .emoji {
  font-size: 28px;
 }
 
-ul {
-  list-style-type: none;
-}
