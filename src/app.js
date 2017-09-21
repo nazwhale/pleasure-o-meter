@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", function() {
   new PusherRequester;
 
   document.addEventListener("click", function(event) {
-    clearSelected()
     var targetElement = event.target;
-    updateTargetElement(targetElement);
-    selectLargeEmoji(targetElement);
+    updateAreaElements(targetElement);
   });
 
-  function updateTargetElement(element) {
+  function updateAreaElements(element) {
     if (element.classList.contains("area")) {
+      clearSelected()
+      selectLargeEmoji(element);
       element.classList.add("selected");
     };
   }
