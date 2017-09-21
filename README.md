@@ -26,7 +26,7 @@ Regarding my styling, I opted for a minimal approach and used flexbox to display
 
 For my colourscheme, I used the [Eye Dropper](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka?hl=en) Chrome extension tool to pick my background shade of green from Pusher's own website. I then used [Adobe Color](https://color.adobe.com/) to identify harmonious colours for my font and highlighting.
 
-### Future ideas
+### Future Ideas
 - Display a constantly updating graph displaying the last 10 values for each room as different coloured lines.
 - Ask the user what aspects contribute most the their personal happiness, and then weighting each of the areas to their preferences and updating the overall score accordingly.
 - Factor in the weather by calling the [Open Weather API](https://openweathermap.org/api) and recalculating the overall office score based on live weather data for Pusher HQ.
