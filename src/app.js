@@ -12,7 +12,6 @@ channel.bind('pusher:subscription_succeeded', function() {
 });
 
 channel.bind('state', function(data) {
-  console.log('Office: ' + data.office);    
   updateView(data);
 });
 
@@ -46,3 +45,18 @@ function emojify(score) {
     return '😠 ';
   };
 }
+
+document.addEventListener("click", function(event) {
+  clearSelected()
+  var targetElement = event.target;
+  if (targetElement.classList.contains("area")) {
+    targetElement.classList.add("selected");
+  };
+});
+
+function clearSelected() {
+  var selected = document.getElementsByClassName("selected");
+  Array.prototype.forEach.call(selected, function(element) {
+    element.classList.remove("selected");
+  });
+};
