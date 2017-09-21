@@ -23,9 +23,10 @@ function updateView(data) {
 };
 
 function updateAreas(data) {
-  var areas = [office, people, coffee, food, darts]
+  var areas = ["office", "people", "coffee", "food", "darts"]
   areas.forEach(function(area) {
-    area.innerHTML = emojify(data[area.id]);
+    var element = document.getElementById(area);
+    element.innerHTML = emojify(data[area]);
   });
 };
 

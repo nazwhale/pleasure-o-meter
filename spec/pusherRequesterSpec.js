@@ -2,11 +2,10 @@
 
 describe("PusherRequester", function() {
 
-  var requester;
   var data;
+  var testElement;
 
   beforeEach(function() {
-    requester = new PusherRequester();
     data = {
             state: {
               office: 4.5,
@@ -16,6 +15,7 @@ describe("PusherRequester", function() {
               darts: 3
             }
           }
+
   });
 
   describe("updateView", function() {
@@ -33,6 +33,18 @@ describe("PusherRequester", function() {
       expect(updateLargeEmoji).toHaveBeenCalled()
     });
   });
+
+  describe("updateAreas", function() {
+    it("calls emojify for each area", function() {
+      testElement = document.createElement('a'); 
+      testElement.innerHTML = "😐 "
+      spyOn(document, 'getElementById').and.returnValue(testElement);
+      spyOn(window, 'emojify');
+      updateAreas(data);
+      expect(emojify.calls.count()).toEqual(5);
+    });
+  });
+
 
   describe("emojify", function() {
     it("very happy emoji if score is between 8 and 10", function() {
