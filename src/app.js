@@ -16,27 +16,25 @@ channel.bind('state', function(data) {
 });
 
 function updateView(data) {
-  var office = document.getElementById('office');
-  office.innerHTML = emojify(data.office);
+  updateAreas(data);
+  updateLargeEmoji(data);
+};
 
-  var people = document.getElementById('people');
-  people.innerHTML = emojify(data.people);
+function updateAreas(data) {
+  var areas = [office, people, coffee, food, darts]
 
-  var coffee = document.getElementById('coffee');
-  coffee.innerHTML = emojify(data.coffee);
+  areas.forEach(function(area) {
+    area.innerHTML = emojify(data[area.id]);
+  });
+}
 
-  var food = document.getElementById('food');
-  food.innerHTML = emojify(data.food);
-
-  var darts = document.getElementById('darts');
-  darts.innerHTML = emojify(data.darts);
-
+function updateLargeEmoji(data) {
   var selectedEmoji = document.getElementById("selected-emoji");
   var selectedArea = document.getElementsByClassName("selected")[0]
   var selectedType = selectedArea.children[0].id
 
   selectedEmoji.innerHTML = emojify(data[selectedType]);
-};
+}
 
 function emojify(score) {
   if (score >= 8) {
@@ -56,7 +54,7 @@ document.addEventListener("click", function(event) {
   clearSelected()
   var targetElement = event.target;
   updateTargetElement(targetElement);
-  updateSelectedEmoji(targetElement);
+  selectLargeEmoji(targetElement);
 });
 
 function updateTargetElement(element) {
@@ -65,7 +63,7 @@ function updateTargetElement(element) {
   };
 }
 
-function updateSelectedEmoji(element) {
+function selectLargeEmoji(element) {
   var selectedEmoji = document.getElementById("selected-emoji");
   selectedEmoji.innerHTML = element.children[0].innerHTML
 }
