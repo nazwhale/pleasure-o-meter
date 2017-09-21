@@ -24,7 +24,7 @@ function PusherRequester() {
   function updateAreas(data) {
     var areas = [office, people, coffee, food, darts]
     areas.forEach(function(area) {
-      area.innerHTML = emojify(data[area.id]);
+      area.innerHTML = this.emojify(data[area.id]);
     });
   }
 
@@ -33,20 +33,20 @@ function PusherRequester() {
     var selectedArea = document.getElementsByClassName("selected")[0]
     var selectedId = selectedArea.children[0].id
 
-    selectedEmoji.innerHTML = emojify(data[selectedId]);
-  }
-
-  function emojify(score) {
-    if (score >= 8) {
-      return '😄 ';
-    } else if (score >= 6) {
-      return '🙂 ';
-    } else if (score >= 4) {
-      return '😐 ';
-    } else if (score >= 2) {
-      return '😞 ';
-    } else if (score >= 0) {
-      return '😠 ';
-    };
-  }
+    selectedEmoji.innerHTML = this.emojify(data[selectedId]);
+  };
 };
+
+PusherRequester.prototype.emojify = function(score) {
+  if (score >= 8) {
+    return '😄 ';
+  } else if (score >= 6) {
+    return '🙂 ';
+  } else if (score >= 4) {
+    return '😐 ';
+  } else if (score >= 2) {
+    return '😞 ';
+  } else if (score >= 0) {
+    return '😠 ';
+  };
+}
