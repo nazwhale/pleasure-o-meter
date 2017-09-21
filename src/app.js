@@ -30,18 +30,24 @@ function updateView(data) {
 
   var darts = document.getElementById('darts');
   darts.innerHTML = emojify(data.darts);
+
+  var selectedEmoji = document.getElementById("selected-emoji");
+  var selectedArea = document.getElementsByClassName("selected")[0]
+  var selectedType = selectedArea.children[0].id
+
+  selectedEmoji.innerHTML = emojify(data[selectedType]);
 };
 
 function emojify(score) {
-  if (score > 8) {
+  if (score >= 8) {
     return '😄 ';
-  } else if (score > 6) {
+  } else if (score >= 6) {
     return '🙂 ';
-  } else if (score > 4) {
+  } else if (score >= 4) {
     return '😐 ';
-  } else if (score > 2) {
+  } else if (score >= 2) {
     return '😞 ';
-  } else {
+  } else if (score >= 0) {
     return '😠 ';
   };
 }
@@ -49,10 +55,20 @@ function emojify(score) {
 document.addEventListener("click", function(event) {
   clearSelected()
   var targetElement = event.target;
-  if (targetElement.classList.contains("area")) {
-    targetElement.classList.add("selected");
-  };
+  updateTargetElement(targetElement);
+  updateSelectedEmoji(targetElement);
 });
+
+function updateTargetElement(element) {
+  if (element.classList.contains("area")) {
+    element.classList.add("selected");
+  };
+}
+
+function updateSelectedEmoji(element) {
+  var selectedEmoji = document.getElementById("selected-emoji");
+  selectedEmoji.innerHTML = element.children[0].innerHTML
+}
 
 function clearSelected() {
   var selected = document.getElementsByClassName("selected");

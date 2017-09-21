@@ -7,6 +7,18 @@ body {
   color: #2B303B;
 }
 
+.parent {
+  display: flex;
+}
+
+.small-column {
+  width: 25%;
+}
+
+.column {
+  width: 50%;
+}
+
 ul {
   list-style-type: none;
 }
@@ -17,4 +29,9 @@ ul {
 
 .selected {
   background-color: antiquewhite;
+}
+
+#selected-emoji {
+  padding-top: 5%;
+  font-size: 80px;
 }
