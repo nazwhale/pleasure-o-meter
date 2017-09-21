@@ -1,5 +1,5 @@
 # pleasure-o-meter 😊
-A simple UI rendered on real-time data, made with vanilla JavaScript (with the exception of [Pusher's JavaScript client](https://github.com/pusher/pusher-js)).
+A simple UI, rendered on real-time data and made entirely in vanilla JavaScript (with the exceptions of [Pusher](https://github.com/pusher/pusher-js) for getting real-time data and [Jasmine](https://jasmine.github.io/) for testing).
 
 ### Installation and Use
 
