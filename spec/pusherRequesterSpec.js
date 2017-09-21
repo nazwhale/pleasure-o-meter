@@ -15,7 +15,8 @@ describe("PusherRequester", function() {
               darts: 3
             }
           }
-
+    testElement = document.createElement('a'); 
+    testElement.innerHTML = "🙂 "
   });
 
   describe("updateView", function() {
@@ -36,15 +37,12 @@ describe("PusherRequester", function() {
 
   describe("updateAreas", function() {
     it("calls emojify for each area", function() {
-      testElement = document.createElement('a'); 
-      testElement.innerHTML = "😐 "
       spyOn(document, 'getElementById').and.returnValue(testElement);
       spyOn(window, 'emojify');
       updateAreas(data);
       expect(emojify.calls.count()).toEqual(5);
     });
   });
-
 
   describe("emojify", function() {
     it("very happy emoji if score is between 8 and 10", function() {
@@ -67,5 +65,4 @@ describe("PusherRequester", function() {
       expect(emojify(0)).toEqual('😠 ');
     });
   });
-
 })
