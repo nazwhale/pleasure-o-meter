@@ -20,8 +20,16 @@ I first read through the documentation for Pusher's JavaScript client and set up
 
 After, I used that data to update the relevant HTML elements. That allowed me to adapt my program to render emojis based on scores, instead of the integers of the scores themselves.
 
-Finally I worked on highlighting an HTML element on selection and displaying the relevant emoji in a larger font-size. I got this working, but then realised that the large emoji wasn't updating in real time. To fix this I created an `updateLargeEmoji` function to call every time Pusher gets data from the event.
+Finally I worked on highlighting an HTML element on selection and displaying the relevant emoji in a larger font-size. I got this working, but then realised that the large emoji wasn't updating in real time. To fix this I created an `updateLargeEmoji` function to be called every time Pusher gets data from the event.
 
+Regarding my styling, I opted for a minimal approach and used flexbox to display my Pusher office area list alongside my large emoji.
+
+For my colourscheme, I used the [Eye Dropper](https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka?hl=en) Chrome extension tool to pick my background shade of green from Pusher's own website. I then used [Adobe Color](https://color.adobe.com/) to identify harmonious colours for my font and highlighting.
+
+### Future ideas
+- Display a constantly updating graph displaying the last 10 values for each room as different coloured lines.
+- Ask the user what aspects contribute most the their personal happiness, and then weighting each of the areas to their preferences and updating the overall score accordingly.
+- Factor in the weather by calling the [Open Weather API](https://openweathermap.org/api) and recalculating the overall office score based on live weather data for Pusher HQ.
 
 ### Screenshots
 
