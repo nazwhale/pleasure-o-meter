@@ -15,29 +15,28 @@ function PusherRequester() {
   channel.bind('state', function(data) {
     updateView(data);
   });
-
-  function updateView(data) {
-    updateAreas(data);
-    updateLargeEmoji(data);
-  };
-
-  function updateAreas(data) {
-    var areas = [office, people, coffee, food, darts]
-    areas.forEach(function(area) {
-      area.innerHTML = this.emojify(data[area.id]);
-    });
-  }
-
-  function updateLargeEmoji(data) {
-    var selectedEmoji = document.getElementById("selected-emoji");
-    var selectedArea = document.getElementsByClassName("selected")[0]
-    var selectedId = selectedArea.children[0].id
-
-    selectedEmoji.innerHTML = this.emojify(data[selectedId]);
-  };
 };
 
-PusherRequester.prototype.emojify = function(score) {
+function updateView(data) {
+  updateAreas(data);
+  updateLargeEmoji(data);
+};
+
+function updateAreas(data) {
+  var areas = [office, people, coffee, food, darts]
+  areas.forEach(function(area) {
+    area.innerHTML = emojify(data[area.id]);
+  });
+};
+
+function updateLargeEmoji(data) {
+  var selectedEmoji = document.getElementById("selected-emoji");
+  var selectedArea = document.getElementsByClassName("selected")[0]
+  var selectedId = selectedArea.children[0].id
+  selectedEmoji.innerHTML = emojify(data[selectedId]);
+};
+
+function emojify(score) {
   if (score >= 8) {
     return '😄 ';
   } else if (score >= 6) {
@@ -49,4 +48,4 @@ PusherRequester.prototype.emojify = function(score) {
   } else if (score >= 0) {
     return '😠 ';
   };
-}
+};
