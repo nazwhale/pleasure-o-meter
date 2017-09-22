@@ -23,9 +23,10 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function clearSelected() {
-    var selected = document.getElementsByClassName("selected");
-    Array.prototype.forEach.call(selected, function(element) {
-      element.classList.remove("selected");
-    });
+    var selected = document.getElementsByClassName("selected")[0];
+    console.log(selected);
+    if (selected != undefined) {
+      selected.classList.remove("selected");
+    };
   };
 })
