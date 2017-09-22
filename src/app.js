@@ -24,9 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function clearSelected() {
     var selected = document.getElementsByClassName("selected")[0];
-    console.log(selected);
-    if (selected != undefined) {
-      selected.classList.remove("selected");
-    };
+    if (selected != undefined) selected.classList.remove("selected");
   };
 })
