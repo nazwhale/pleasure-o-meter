@@ -31,10 +31,12 @@ function updateAreas(data) {
 };
 
 function updateLargeEmoji(data) {
-  var selectedEmoji = document.getElementById("selected-emoji");
-  var selectedArea = document.getElementsByClassName("selected")[0]
-  var selectedId = selectedArea.children[0].id
-  selectedEmoji.innerHTML = emojify(data[selectedId]);
+  if (document.getElementsByClassName("selected")[0] != undefined) {
+    var selectedEmoji = document.getElementById("selected-emoji");
+    var selectedArea = document.getElementsByClassName("selected")[0]
+    var selectedId = selectedArea.children[0].id
+    selectedEmoji.innerHTML = emojify(data[selectedId]);
+  };
 };
 
 function emojify(score) {
